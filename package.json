@@ -1,9 +1,9 @@
 {
   "name": "gyp-io",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Temporary solution to let node-gyp run `rebuild` under io.js.",
   "bin": {
-    "gyp-io": "gyp_io.js"
+    "gyp-io": "bin/gyp_io.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

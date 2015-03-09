@@ -1,0 +1,31 @@
+{
+  "name": "gyp-io",
+  "version": "1.0.0",
+  "description": "Temporary solution to let node-gyp run `rebuild` under io.js.",
+  "bin": {
+    "gyp-io": "gyp_io.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/XadillaX/gyp-io-service.git"
+  },
+  "keywords": [
+    "io.js",
+    "node-gyp"
+  ],
+  "author": "XadillaX",
+  "license": "GPLv2",
+  "bugs": {
+    "url": "https://github.com/XadillaX/gyp-io-service/issues"
+  },
+  "homepage": "https://github.com/XadillaX/gyp-io-service",
+  "dependencies": {
+    "async": "^0.9.0",
+    "request": "^2.53.0",
+    "spidex": "^2.0.4",
+    "sugar": "^1.4.1"
+  }
+}

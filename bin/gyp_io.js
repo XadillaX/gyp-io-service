@@ -11,6 +11,14 @@ var spidex = require("spidex");
 var fs = require("fs");
 var http = require("http");
 var Hosts = require("../lib/hosts");
+var opts = require("nomnom")
+    .script("gyp-io")
+    .option("stay-hosts", {
+        abbr: "s",
+        flag: true,
+        help: "stay the hosts, not modify it"
+    })
+    .parse();
 var hosts;
 
 var LOCAL_IP = "127.0.0.1";
@@ -75,10 +83,12 @@ function createServer() {
 
 async.waterfall([
     function(callback) {
+        if(opts["stay-hosts"]) return callback(undefined, "");
         fs.readFile("/etc/hosts", { encoding: "utf8" }, callback);
     },
 
     function(str, callback) {
+        if(opts["stay-hosts"]) return callback(undefined, "");
         process.on("SIGINT", function() {
             resumeHosts(hosts, function(err) {
                 if(err) {
@@ -95,6 +105,7 @@ async.waterfall([
     },
 
     function(str, callback) {
+        if(opts["stay-hosts"]) return callback();
         hosts = new Hosts(str);
         updateHosts(hosts, function(err) {
             if(err) {
